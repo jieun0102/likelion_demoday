@@ -1,7 +1,6 @@
 .Post_main_wrap {
     max-width: 375px;
     height: 618px;
-    background-color: pink;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -23,9 +22,9 @@
     .Post_main_name {
         h1 {
             font-size: 15px;
-            font-weight: 500;
-            margin-left: 17px;
-            margin-top: 17px;
+            font-weight: 550;
+            margin-left: 20px;
+            margin-top: 10px;
         }
 
         input {
@@ -33,14 +32,103 @@
             height: 48px;
             background: #F5F7FA;
             border-radius: 10px;
-            margin-left: 17px;
-            font-size: 18px;
+            margin-left: 20px;
+            font-size: 16px;
             font-weight: 400;
+            padding-left: 16px;
+            box-sizing: border-box;
             border: none;
+            outline: none;
+
+            &::placeholder {
+                font-weight: 400;
+                color: #C4C5C8;
+                font-size: 16px;
+            }
         }
 
         img {
             margin-left: 20px;
+            margin-bottom: 5px;
         }
+    }
+
+    .Post_main_category {
+        h1 {
+            font-size: 15px;
+            font-weight: 550;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        img {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+    }
+
+    .Post_main_category_btn {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+
+        .main_category01,
+        .main_category02,
+        .main_category03 {
+            width: 106px;
+            height: 36px;
+            border: 2px solid #FFC833;
+            border-radius: 20px;
+            background-color: #fff;
+            text-align: center;
+            color: #FFC833;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+    }
+
+    .Post_main_write {
+        textarea {
+            width: 335px;
+            max-height: 230px;
+            font-family: inherit;
+            background: #F5F7FA;
+            border-radius: 10px;
+            margin-left: 20px;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 16px;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            resize: none;
+            scrollbar-width: none;
+
+            &:focus{
+                outline: 2px solid #FFC833;
+            }
+
+            &::placeholder {
+                font-weight: 400;
+                color: #C4C5C8;
+                font-size: 16px;
+            }
+        }
+
+    }
+
+    .write_btn{
+        width: 333px;
+        height: 50px;
+        margin-left: 20px;
+        border-radius: 8px;
+        background-color: #EBEDF0;
+        border: none;
+        color: #ABACAF;
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 10px;
     }
 }
