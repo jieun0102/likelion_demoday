@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import '../../assets/sass/Post.scss'
 import Arrow from '../../assets/img/icon_arrow_left.png'
 import Line from '../../assets/img/Line 2.png'
+import Delete from '../../assets/img/icon_delete.png'
 
 const Post_main = () => {
+    const navigate = useNavigate();
     const [feature, setFeature] = useState(null);
 
     const toggleFeature = (value) => {
@@ -11,6 +14,9 @@ const Post_main = () => {
     };
 
     const [content, setContent] = useState("");
+    const [name, setName] = useState("");
+    const [isFocused, setIsFocused] = useState(false);
+
     const maxLength = 100;
 
 
@@ -18,14 +24,25 @@ const Post_main = () => {
         <div>
             <div className="Post_main_wrap">
                 <div className="Post_main_header">
-                    <img src={Arrow} alt="" /></div>
+                    <img src={Arrow} alt="" onClick={() => navigate(-1)}/></div>
                 <div className="Post_main_name">
                     <div className="Post_main_name_title">
                         <h1>해니가 기억할 이름을 적어주세요!</h1>
                         <div className="Post_main_name_input">
-                            <input type="text" placeholder='예) 수정' />
-                            <img src={Line} alt="" />
+                            <input type="text" placeholder='예) 수정' value={name}
+                                onChange={(e) => setName(e.target.value)} onFocus={() => setIsFocused(true)}
+                                onBlur={() => setIsFocused(false)} />
+                            {name.length > 0 && isFocused && (
+                                <button type="button" className="delete active"
+                                    onMouseDown={(e) => {
+                                        e.preventDefault();
+                                        setName("");
+                                    }}>
+                                    <img src={Delete} alt="" /></button>
+                            )}
                         </div>
+                        <div className="Post_main_name_input_line">
+                            <img src={Line} alt="" /></div>
                     </div>
                 </div>
                 <div className="Post_main_category">

@@ -69,6 +69,14 @@
             margin-left: 20px;
             margin-bottom: 5px;
         }
+
+    }
+
+    .Post_main_name_input_line {
+        img {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
     }
 
     .Post_main_category_btn {
@@ -96,6 +104,26 @@
             }
         }
 
+    }
+
+    .Post_main_name_input {
+        display: flex;
+
+        button {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            margin-left: 290px;
+            margin-top: 10px;
+            border: none;
+            background-color: transparent;
+            display: none;
+
+            &.active {
+                display: block;
+                cursor: pointer;
+            }
+        }
     }
 
     .Post_main_write {
