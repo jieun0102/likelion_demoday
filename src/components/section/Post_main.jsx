@@ -7,7 +7,7 @@ import Delete from '../../assets/img/icon_delete.png';
 
 const Post_main = () => {
     const navigate = useNavigate();
-    
+
     // 상태 관리
     const [name, setName] = useState(""); // nickname
     const [feature, setFeature] = useState(null); // postType
@@ -53,14 +53,21 @@ const Post_main = () => {
             const data = await response.json();
 
             if (data.isSuccess) {
-                alert("성공적으로 전달되었습니다!");
-                navigate('/Result',{
+                const { postId, writerUuid } = data.result;
+                const savedUuids = JSON.parse(localStorage.getItem('myPostUuids')) || [];
+                if (!savedUuids.includes(writerUuid)) {
+                    savedUuids.push(writerUuid);
+                    localStorage.setItem('myPostUuids', JSON.stringify(savedUuids));
+                }
+
+                navigate('/Result', {
                     state: {
-                        name: name,       // 입력한 이름
-                        tag: feature,     // 선택한 카테고리 (예: '새해')
-                        message: content, // 편지 본문
-                        replyId: data.result ? data.result.replyId : null
-                     }
+                        name: name,
+                        tag: feature,
+                        message: content,
+                        postId: postId,
+                        writerUuid: writerUuid
+                    }
                 }); // 성공 시 결과화면으로 이동
             } else {
                 // 서버에서 내려준 에러 메시지 처리 (중복 닉네임 등)
@@ -83,13 +90,13 @@ const Post_main = () => {
                     <div className="Post_main_name_title">
                         <h1>해니가 기억할 이름을 적어주세요!</h1>
                         <div className="Post_main_name_input">
-                            <input 
-                                type="text" 
-                                placeholder='예) 수정' 
+                            <input
+                                type="text"
+                                placeholder='예) 수정'
                                 value={name}
-                                onChange={(e) => setName(e.target.value)} 
+                                onChange={(e) => setName(e.target.value)}
                                 onFocus={() => setIsFocused(true)}
-                                onBlur={() => setIsFocused(false)} 
+                                onBlur={() => setIsFocused(false)}
                             />
                             {name.length > 0 && isFocused && (
                                 <button type="button" className="delete active"
@@ -113,10 +120,10 @@ const Post_main = () => {
                         <button
                             className={`main_category01 ${feature === "새해" ? "selected" : ""}`}
                             onClick={() => toggleFeature("새해")}>새해 소원</button>
-                        <button 
+                        <button
                             className={`main_category02 ${feature === "속마음" ? "selected" : ""}`}
                             onClick={() => toggleFeature("속마음")}>속마음</button>
-                        <button 
+                        <button
                             className={`main_category03 ${feature === "용기" ? "selected" : ""}`}
                             onClick={() => toggleFeature("용기")}>용기 얻기</button>
                     </div>
@@ -124,8 +131,8 @@ const Post_main = () => {
                 </div>
 
                 <div className="Post_main_write">
-                    <textarea 
-                        placeholder="해니에게 전할 내용을 적어주세요!" 
+                    <textarea
+                        placeholder="해니에게 전할 내용을 적어주세요!"
                         value={content}
                         maxLength={maxLength}
                         onChange={(e) => setContent(e.target.value)}
@@ -136,7 +143,7 @@ const Post_main = () => {
                 </div>
 
                 <div className="Post_main_btn">
-                    <button 
+                    <button
                         className={`write_btn ${(content.length > 0 && name && feature) ? "active" : ""}`}
                         onClick={handleSubmit} // 클릭 시 API 전송
                     >

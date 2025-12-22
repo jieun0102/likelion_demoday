@@ -1,11 +1,8 @@
-/* Result.scss */
-
 $primary-color: #FFC833;
 $bg-color: #FFF8E6;
 $text-black: #333333;
 $text-gray: #999999;
 
-/* --- 1. 로딩 화면 스타일 --- */
 .Loading_view {
     width: 100%;
     max-width: 375px;
@@ -42,7 +39,6 @@ $text-gray: #999999;
     }
 }
 
-/* --- 2. 결과 화면 스타일 --- */
 .Result_view {
     width: 100%;
     max-width: 375px;
@@ -98,32 +94,26 @@ $text-gray: #999999;
         flex: 1;
         padding: 30px 24px;
 
-        /* A. 내 마음 글 탭 */
         .my-letter-view {
             text-align: left;
 
-            /* ✅ 카테고리 뱃지 스타일 */
             .category-group {
                 display: flex;
                 justify-content: flex-start;
-                /* 왼쪽 정렬 */
                 margin-bottom: 24px;
 
                 .cat-btn {
                     padding: 8px 16px;
-                    /* 버튼 내부 여백 */
                     height: 36px;
                     border: 2px solid $primary-color;
                     border-radius: 20px;
 
-                    /* 선택된 상태이므로 항상 노란 배경 */
                     background-color: $primary-color;
                     color: #FFF;
 
                     font-size: 14px;
                     font-weight: 600;
                     pointer-events: none;
-                    /* 클릭 안됨 */
                 }
             }
 
@@ -155,7 +145,6 @@ $text-gray: #999999;
             }
         }
 
-        /* B. 해니의 답장 탭 */
         .reply-wrap {
             display: flex;
             flex-direction: column;
