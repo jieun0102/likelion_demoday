@@ -1,0 +1,94 @@
+.Main_wrap {
+    max-width: 375px;
+    height: 633px;  
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    background-color: #FFFFFF;
+    background-image:
+        radial-gradient(circle at 50% 0%, #FFF4C1 0%, transparent 60%),
+        radial-gradient(circle at 80% 10%, #FFE0E6 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, #FFF4C1 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, #FFE0E6 0%, transparent 50%);
+
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    .character-image {
+        margin-top: 30px;
+        width: 324px;
+        height: 340px;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .text-area {
+        text-align: center;
+        margin-top: 24px;
+        margin-right: 10px;
+
+        .Logo {
+            width: 265px;
+            height: 51px;
+            margin-right: 10px;
+        }
+
+        .subtitle {
+            color: #939496;
+            font-weight: 400;
+            font-size: 15px;
+            margin: 0;
+        }
+    }
+
+    .button-group {
+        margin-top: 15px;
+        width: 355px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .btn {
+            width: 300px;
+            margin: 0 auto;
+            padding: 18px 0;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #FFC833;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #FFC646;
+            border: 2px solid #FFC833;
+        }
+    }
+}
+
+/* 애니메이션 정의 */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}

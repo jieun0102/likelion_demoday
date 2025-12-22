@@ -1,0 +1,239 @@
+/* Result.scss */
+
+$primary-color: #FFC833;
+$bg-color: #FFF8E6;
+$text-black: #333333;
+$text-gray: #999999;
+
+/* --- 1. 로딩 화면 스타일 --- */
+.Loading_view {
+    width: 100%;
+    max-width: 375px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #FFFFFF;
+    background-image:
+        radial-gradient(circle at 50% 0%, #FFF4C1 0%, transparent 60%),
+        radial-gradient(circle at 80% 10%, #FFE0E6 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, #FFF4C1 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, #FFE0E6 0%, transparent 50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .content {
+        text-align: center;
+
+        .loading-img {
+            width: 200px;
+            margin-bottom: 20px;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .loading-text {
+            color: #555;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}
+
+/* --- 2. 결과 화면 스타일 --- */
+.Result_view {
+    width: 100%;
+    max-width: 375px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: $bg-color;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+
+    .tab-header {
+        display: flex;
+        position: relative;
+        background: #fff;
+        padding-top: 20px;
+
+        .tab-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 15px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: $text-gray;
+            cursor: pointer;
+            transition: color 0.2s;
+
+            &.active {
+                color: $text-black;
+            }
+        }
+
+        .indicator {
+            position: absolute;
+            bottom: 0;
+            height: 3px;
+            background-color: $primary-color;
+            width: 50%;
+            transition: left 0.3s ease;
+
+            &.my {
+                left: 0;
+            }
+
+            &.reply {
+                left: 50%;
+            }
+        }
+    }
+
+    .tab-content {
+        flex: 1;
+        padding: 30px 24px;
+
+        /* A. 내 마음 글 탭 */
+        .my-letter-view {
+            text-align: left;
+
+            /* ✅ 카테고리 뱃지 스타일 */
+            .category-group {
+                display: flex;
+                justify-content: flex-start;
+                /* 왼쪽 정렬 */
+                margin-bottom: 24px;
+
+                .cat-btn {
+                    padding: 8px 16px;
+                    /* 버튼 내부 여백 */
+                    height: 36px;
+                    border: 2px solid $primary-color;
+                    border-radius: 20px;
+
+                    /* 선택된 상태이므로 항상 노란 배경 */
+                    background-color: $primary-color;
+                    color: #FFF;
+
+                    font-size: 14px;
+                    font-weight: 600;
+                    pointer-events: none;
+                    /* 클릭 안됨 */
+                }
+            }
+
+            .user-title {
+                font-size: 22px;
+                font-weight: 700;
+                color: $text-black;
+                margin: 0 0 8px 0;
+            }
+
+            .date {
+                font-size: 13px;
+                color: $text-gray;
+                margin: 0 0 20px 0;
+            }
+
+            .divider {
+                width: 100%;
+                height: 2px;
+                background: $primary-color;
+                margin-bottom: 24px;
+            }
+
+            .user-message {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                word-break: keep-all;
+            }
+        }
+
+        /* B. 해니의 답장 탭 */
+        .reply-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .reply-img {
+                width: 135px;
+                margin-bottom: 16px;
+            }
+
+            .reply-divider {
+                width: 204px;   
+                height: 1px;   
+                background-color: $primary-color; 
+                margin-bottom: 24px; 
+            }
+
+            .reply-box {
+                width: 100%;
+                background-color: transparent;
+                padding: 0;
+                box-sizing: border-box;
+
+                .reply-text {
+                    font-size: 15px;
+                    line-height: 1.8;
+                    color: #333;
+                    margin: 0;
+                    text-align: left;
+                    white-space: pre-wrap;
+                }
+
+                .reply-date {
+                    margin-top: 16px;
+                    text-align: right;
+                    font-size: 12px;
+                    color: $text-gray;
+                }
+            }
+        }
+    }
+
+    .bottom-area {
+        margin: 0 auto;
+        text-align: center;
+        margin-top: auto;
+        padding-bottom: 40px;
+
+        .home-btn {
+            display: block;
+            width: 250px;
+            padding: 18px 0;
+            background-color: #FFFFFF;
+            border: 2px solid $primary-color;
+            border-radius: 50px;
+            color: $primary-color;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+
+            &:active {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}

@@ -54,7 +54,14 @@ const Post_main = () => {
 
             if (data.isSuccess) {
                 alert("성공적으로 전달되었습니다!");
-                navigate('/'); // 성공 시 메인으로 이동
+                navigate('/Result',{
+                    state: {
+                        name: name,       // 입력한 이름
+                        tag: feature,     // 선택한 카테고리 (예: '새해')
+                        message: content, // 편지 본문
+                        replyId: data.result ? data.result.replyId : null
+                     }
+                }); // 성공 시 결과화면으로 이동
             } else {
                 // 서버에서 내려준 에러 메시지 처리 (중복 닉네임 등)
                 alert(data.message || "오류가 발생했습니다.");
