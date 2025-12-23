@@ -45,9 +45,11 @@ const Result = () => {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'anonId': writerUuid
-            }
+              'anonId': writerUuid 
+            },
+            body: JSON.stringify({})
           });
+
           const data = await response.json();
 
           // 1. 성공(isSuccess: true)이고, 상태가 'COMPLETED'여야 함
@@ -92,7 +94,7 @@ const Result = () => {
     }
 
     return () => { isMounted = false; };
-  }, [postId, writerUuid, navigate]); 
+  }, [postId, writerUuid, navigate]);
 
   // 날짜 포맷팅
   const formatDate = (dateInput) => {
