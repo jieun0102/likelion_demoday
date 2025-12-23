@@ -41,9 +41,8 @@ const Result = () => {
 
       try {
         while (retryCount < maxRetries) {
-          // ✅ 헤더에 writerUuid (anonId) 포함하여 요청
           const response = await fetch(`https://api.dearhaeny.store/posts/${postId}/reply`, {
-            method: 'GET',
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'anonId': writerUuid
@@ -85,7 +84,6 @@ const Result = () => {
       }
     };
 
-    // ✅ postId와 writerUuid가 모두 있을 때만 요청 시작
     if (postId && writerUuid) {
       fetchReply();
     } else {
@@ -94,8 +92,7 @@ const Result = () => {
     }
 
     return () => { isMounted = false; };
-  }, [postId, writerUuid, navigate]); // ✅ 의존성 배열에 writerUuid 추가
-
+  }, [postId, writerUuid, navigate]); 
 
   // 날짜 포맷팅
   const formatDate = (dateInput) => {
