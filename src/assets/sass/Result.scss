@@ -1,12 +1,12 @@
 $primary-color: #FFC833;
 $bg-color: #FFF8E6;
-$text-black: #333333;
-$text-gray: #999999;
+$text-black: #141516;
+$text-gray: #939496;
 
 .Loading_view {
     width: 100%;
     max-width: 375px;
-    height: 100vh;
+    height: 633px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -32,9 +32,9 @@ $text-gray: #999999;
         }
 
         .loading-text {
-            color: #555;
-            font-size: 18px;
-            font-weight: 600;
+            color: $text-black;
+            font-size: 14px;
+            font-weight: 400;
         }
     }
 }

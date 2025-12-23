@@ -1,52 +1,12 @@
-/* Result.scss */
-
 $primary-color: #FFC833;
 $bg-color: #FFF8E6;
-$text-black: #333333;
-$text-gray: #999999;
+$text-black: #141516;
+$text-gray: #939496;
 
-/* --- 1. 로딩 화면 스타일 --- */
-.Loading_view {
-    width: 100%;
-    max-width: 375px;
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #FFFFFF;
-    background-image:
-        radial-gradient(circle at 50% 0%, #FFF4C1 0%, transparent 60%),
-        radial-gradient(circle at 80% 10%, #FFE0E6 0%, transparent 50%),
-        radial-gradient(circle at 50% 100%, #FFF4C1 0%, transparent 60%),
-        radial-gradient(circle at 10% 80%, #FFE0E6 0%, transparent 50%);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    .content {
-        text-align: center;
-
-        .loading-img {
-            width: 200px;
-            margin-bottom: 20px;
-            animation: float 2s ease-in-out infinite;
-        }
-
-        .loading-text {
-            color: #555;
-            font-size: 18px;
-            font-weight: 600;
-        }
-    }
-}
-
-/* --- 2. 결과 화면 스타일 --- */
 .Result_view {
     width: 100%;
     max-width: 375px;
-    min-height: 100vh;
+    min-height: 633px;
     margin: 0 auto;
     background-color: $bg-color;
     display: flex;
@@ -98,32 +58,26 @@ $text-gray: #999999;
         flex: 1;
         padding: 30px 24px;
 
-        /* A. 내 마음 글 탭 */
         .my-letter-view {
             text-align: left;
 
-            /* ✅ 카테고리 뱃지 스타일 */
             .category-group {
                 display: flex;
                 justify-content: flex-start;
-                /* 왼쪽 정렬 */
                 margin-bottom: 24px;
 
                 .cat-btn {
                     padding: 8px 16px;
-                    /* 버튼 내부 여백 */
                     height: 36px;
                     border: 2px solid $primary-color;
                     border-radius: 20px;
 
-                    /* 선택된 상태이므로 항상 노란 배경 */
                     background-color: $primary-color;
                     color: #FFF;
 
                     font-size: 14px;
                     font-weight: 600;
                     pointer-events: none;
-                    /* 클릭 안됨 */
                 }
             }
 
@@ -155,7 +109,6 @@ $text-gray: #999999;
             }
         }
 
-        /* B. 해니의 답장 탭 */
         .reply-wrap {
             display: flex;
             flex-direction: column;
@@ -182,7 +135,7 @@ $text-gray: #999999;
                 .reply-text {
                     font-size: 15px;
                     line-height: 1.8;
-                    color: #333;
+                    color: $text-black;
                     margin: 0;
                     text-align: left;
                     white-space: pre-wrap;
