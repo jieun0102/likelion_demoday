@@ -41,11 +41,16 @@ const Result = () => {
 
       try {
         while (retryCount < maxRetries) {
+          console.log("API 요청 시작, 보낼 데이터:", {
+            url: `https://api.dearhaeny.store/posts/${postId}/reply`,
+            headers: { 'anonId': writerUuid }
+          });
+
           const response = await fetch(`https://api.dearhaeny.store/posts/${postId}/reply`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'anonId': writerUuid 
+              'anonId': writerUuid
             },
             body: JSON.stringify({})
           });

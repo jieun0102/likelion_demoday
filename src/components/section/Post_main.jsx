@@ -54,6 +54,7 @@ const Post_main = () => {
 
             if (data.isSuccess) {
                 const { postId, writerUuid } = data.result;
+                console.log("서버에서 받은 UUID:", writerUuid);
                 const savedUuids = JSON.parse(localStorage.getItem('myPostUuids')) || [];
                 if (!savedUuids.includes(writerUuid)) {
                     savedUuids.push(writerUuid);
