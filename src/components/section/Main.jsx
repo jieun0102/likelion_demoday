@@ -34,7 +34,7 @@ const Main = () => {
           해니에게 마음 보내기
         </button>
 
-        <button className="btn btn-secondary" onClick={() => navigate('/Archive')}>
+        <button className="btn btn-secondary" onClick={() => navigate('/Result_archive')}>
           해니의 마음 모음함
         </button>
       </div>
