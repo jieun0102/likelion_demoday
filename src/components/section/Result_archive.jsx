@@ -28,9 +28,15 @@ const formatDate = (dateInput) => {
 const Result_archive = () => {
     const navigate = useNavigate();
 
+    /* 🔥 데모/제출용 공통 anonId */
+    useEffect(() => {
+        const DEMO_ANON_ID = 'DEMO_ANON_ID';
+        localStorage.setItem('anonId', DEMO_ANON_ID);
+    }, []);
+
     const [selectedFilter, setSelectedFilter] = useState('ALL');
     const [posts, setPosts] = useState([]);
-    const [totalCount, setTotalCount] = useState(0); // ✅ 추가
+    const [totalCount, setTotalCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -59,7 +65,7 @@ const Result_archive = () => {
 
                 if (Array.isArray(data.posts)) {
                     setPosts(data.posts);
-                    setTotalCount(data.totalCount ?? data.posts.length); // ✅ 핵심
+                    setTotalCount(data.totalCount ?? data.posts.length);
                 } else {
                     setPosts([]);
                     setTotalCount(0);
@@ -101,7 +107,7 @@ const Result_archive = () => {
             {/* 결과 요약 */}
             <div className="result-summary">
                 <span>{FILTERS.find((f) => f.key === selectedFilter)?.label}</span>
-                <span>{totalCount}개의 결과</span> {/* ✅ 수정 */}
+                <span>{totalCount}개의 결과</span>
             </div>
 
             {/* 리스트 */}
@@ -122,7 +128,7 @@ const Result_archive = () => {
                             }
                         >
                             <span className="emotion-chip">
-                                {tagLabels[post.postType]} {/* ✅ 수정 */}
+                                {tagLabels[post.postType]}
                             </span>
                             <h3 className="card-title">
                                 {post.nickname}님의 마음
